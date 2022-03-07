@@ -1,0 +1,78 @@
+.tabs {
+  & > li {
+    background-color: #b3b3b3;
+    text-align: left;
+  }
+
+  & > li:not(:first-child),
+  & > li:not(:last-child) {
+    padding: 10px;
+  }
+
+  & > li:first-child {
+    padding: 10px 5px 10px 10px;
+  }
+
+  & > li:last-child {
+    padding: 10px 10px 10px 5px;
+  }
+
+  .tabs__links {
+    background-color: #b3b3b3;
+    display: none;
+
+    li {
+      font-size: 14px;
+    }
+  }
+
+  .checkbox:checked ~ .tabs__links {
+    display: block;
+
+    li {
+      height: 50px;
+      line-height: 50px;
+      font-size: 24px;
+    }
+  }
+}
+
+@media #{$medium} {
+  .tabs {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    position: relative;
+
+    & > li {
+      flex-basis: 33.3%;
+      text-align: center;
+
+      & > label {
+        padding-top: 200px;
+        background-color: #f1f1f1;
+        background-image: url("../images/rysunek.svg");
+        background-position: center top;
+        background-repeat: no-repeat;
+        transition: 0.2s ease-in background-color;
+        width: 100%;
+        display: block;
+      }
+
+      & > .checkbox:checked ~ label {
+        transition: 0.2s;
+        background: #b3b3b3 url("../images/rysunek.svg") no-repeat center top;
+      }
+
+      .checkbox:checked ~ .tabs__links {
+        position: absolute;
+        bottom: -40px;
+        left: 0;
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+        padding: 0 20% 0 20%;
+      }
+    }
+  }
+}
